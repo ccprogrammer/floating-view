@@ -2,7 +2,7 @@
 
 The `FloatingView` package enables you to create a floating window similar to YouTube's floating video feature. This allows the window to float on the screen and be draggable while scrolling.
 
-![The example app running in iOS](https://github.com/ccprogrammer/floating-view/raw/main/lib/assets/floating-view-video.gif?raw=true)
+<img src="https://github.com/ccprogrammer/floating-view/raw/main/lib/assets/floating-view-video.gif?raw=true" alt="The example app running in iOS"  width="100%" />
 
 ### Integration Steps
 
