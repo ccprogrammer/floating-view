@@ -1,3 +1,3 @@
-## 1.0.0
+## 1.0.1
 
-* First Release
+* Added isDraggable property in the controller

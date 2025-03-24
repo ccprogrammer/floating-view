@@ -108,15 +108,17 @@ class FloatingViewState extends State<FloatingView> {
       if (_controller.isCollapsed) _controller.toggleSize();
     },
     onPanStart: (_) {
-      if (_controller.isCollapsed) _controller.toggleMoving();
+      if (_controller.isDraggable && _controller.isCollapsed) {
+        _controller.toggleMoving();
+      }
     },
     onPanUpdate: (details) {
-      if (_controller.isCollapsed) {
+      if (_controller.isDraggable && _controller.isCollapsed) {
         _controller.position += details.delta;
       }
     },
     onPanEnd: (_) {
-      if (_controller.isCollapsed) {
+      if (_controller.isDraggable && _controller.isCollapsed) {
         _controller.snapToCorner();
         _controller.toggleMoving();
       }

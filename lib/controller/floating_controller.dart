@@ -1,18 +1,18 @@
 import 'package:floating_view/floating_view.dart';
 
 /// Enum representing the possible positions for the floating widget.
-enum FloatingPosition { 
+enum FloatingPosition {
   /// Position the floating widget at the top left corner.
-  topLeft, 
-  
+  topLeft,
+
   /// Position the floating widget at the top right corner.
-  topRight, 
-  
+  topRight,
+
   /// Position the floating widget at the bottom left corner.
-  bottomLeft, 
-  
+  bottomLeft,
+
   /// Position the floating widget at the bottom right corner.
-  bottomRight 
+  bottomRight,
 }
 
 /// Controller for managing the state and behavior of a floating widget.
@@ -25,6 +25,7 @@ class FloatingController extends ChangeNotifier {
   FloatingController(
     this.context, {
     this.collapsedHeight = 170,
+    this.isDraggable = false,
     this.topMargin = 75,
     this.bottomMargin = 20,
     this.padding = 20,
@@ -33,6 +34,9 @@ class FloatingController extends ChangeNotifier {
 
   /// The height of the floating widget when it is collapsed.
   final double collapsedHeight;
+
+  /// Controls whether the floating widget can be moved by the user.
+  final bool isDraggable;
 
   /// The margin from the top of the screen.
   final double topMargin;
