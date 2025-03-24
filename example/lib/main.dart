@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   late final FloatingController _controller = FloatingController(
     context,
     initialPosition: FloatingPosition.bottomLeft,
+    isDraggable: true,
   );
 
   @override
