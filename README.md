@@ -61,10 +61,6 @@ To integrate the package into your Flutter application, follow these steps:
                videoController = VideoPlayerController.asset(data.url)
                    ..initialize().then((_) {
                        videoController?.play();
-                       setState(() {});
-                   })
-                   ..addListener(() {
-                       setState(() {});
                    });
 
                widget.controller.initialize(

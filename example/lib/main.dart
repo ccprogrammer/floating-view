@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final appbar = AppBar(title: Text('Floating Widget'));
+    final appbar = AppBar(title: Text('Floating View'));
 
     final fab = FloatingActionButton(
       child: Icon(Icons.navigate_next),
@@ -89,15 +89,10 @@ class _ItemBuilderState extends State<ItemBuilder> {
     switch (data) {
       case Video _:
         VideoPlayerController? videoController;
-        videoController =
-            VideoPlayerController.asset(data.url)
-              ..initialize().then((_) {
-                videoController?.play();
-                setState(() {});
-              })
-              ..addListener(() {
-                setState(() {});
-              });
+        videoController = VideoPlayerController.asset(data.url)
+          ..initialize().then((_) {
+            videoController?.play();
+          });
         {}
 
         widget.controller.initialize(

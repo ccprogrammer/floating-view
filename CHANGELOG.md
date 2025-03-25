@@ -1,3 +1,3 @@
-## 1.0.1
+## 1.0.2
 
-* Added isDraggable property in the controller
+* Updated the example on how to use VideoPlayer properly across screens with FloatingView

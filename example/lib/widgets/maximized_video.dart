@@ -31,6 +31,17 @@ class _MaximizedVideoState extends State<MaximizedVideo> {
     super.dispose();
   }
 
+  @override
+  void didUpdateWidget(covariant MaximizedVideo oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    Future.delayed(Duration(seconds: 1)).then((_) {
+      if (mounted) {
+        widget.videoController.addListener(_onVideoControllerUpdate);
+      }
+    });
+  }
+
   void _onVideoControllerUpdate() {
     if (mounted) {
       setState(() {});
@@ -193,15 +204,12 @@ class _MaximizedVideoState extends State<MaximizedVideo> {
                               switch (item) {
                                 case Video _:
                                   VideoPlayerController? videoController;
-                                  videoController =
-                                      VideoPlayerController.asset(item.url)
-                                        ..initialize().then((_) {
-                                          videoController?.play();
-                                          setState(() {});
-                                        })
-                                        ..addListener(() {
-                                          setState(() {});
-                                        });
+                                  videoController = VideoPlayerController.asset(
+                                      item.url,
+                                    )
+                                    ..initialize().then((_) {
+                                      videoController?.play();
+                                    });
 
                                   widget.floatingController.initialize(
                                     maxChild: MaximizedVideo(
@@ -212,7 +220,8 @@ class _MaximizedVideoState extends State<MaximizedVideo> {
                                     ),
                                     minChild: MinimizedVideo(
                                       videoController: videoController,
-                                      floatingController: widget.floatingController,
+                                      floatingController:
+                                          widget.floatingController,
                                       video: item,
                                     ),
                                     onDispose: () {

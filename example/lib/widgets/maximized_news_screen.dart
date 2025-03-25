@@ -63,93 +63,94 @@ class _MaximizedNewsScreenState extends State<MaximizedNewsScreen> {
           ),
         ),
 
-        // Padding(
-        //   padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-        //   child: Column(
-        //     crossAxisAlignment: CrossAxisAlignment.start,
-        //     children: [
-        //       const Text(
-        //         'Related Articles',
-        //         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        //       ),
-        //       const SizedBox(height: 8),
-        //       ListView.builder(
-        //         itemCount: moreList.length,
-        //         shrinkWrap: true,
-        //         physics: NeverScrollableScrollPhysics(),
-        //         padding: EdgeInsets.zero,
-        //         itemBuilder: (context, index) {
-        //           final item = moreList[index];
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Related Articles',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              ListView.builder(
+                itemCount: moreList.length,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  final item = moreList[index];
 
-        //           String title = '';
-        //           String description = '';
-        //           if (item is News) {
-        //             title = item.title;
-        //             description = item.shortDescription;
-        //           } else if (item is Video) {
-        //             title = item.title;
-        //             description = item.description;
-        //           }
+                  String title = '';
+                  String description = '';
+                  if (item is News) {
+                    title = item.title;
+                    description = item.shortDescription;
+                  } else if (item is Video) {
+                    title = item.title;
+                    description = item.description;
+                  }
 
-        //           return ListTile(
-        //             title: Text(title),
-        //             contentPadding: EdgeInsets.zero,
-        //             subtitle: Text(
-        //               description,
-        //               maxLines: 2,
-        //               overflow: TextOverflow.ellipsis,
-        //             ),
+                  return ListTile(
+                    title: Text(title),
+                    contentPadding: EdgeInsets.zero,
+                    subtitle: Text(
+                      description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
 
-        //             onTap: () {
-        //               FloatingController? controller;
+                    onTap: () {
+                      switch (item) {
+                        case Video _:
+                          VideoPlayerController? videoController;
+                          videoController = VideoPlayerController.asset(
+                              item.url,
+                            )
+                            ..initialize().then((_) {
+                              videoController?.play();
+                            });
 
-        //               switch (item) {
-        //                 case Video _:
-        //                   VideoPlayerController? videoController;
+                          widget.controller.initialize(
+                            maxChild: MaximizedVideo(
+                              videoController: videoController,
+                              floatingController: widget.controller,
+                              video: item,
+                            ),
+                            minChild: MinimizedVideo(
+                              videoController: videoController,
+                              floatingController: widget.controller,
+                              video: item,
+                            ),
+                            onDispose: () {
+                              videoController?.dispose();
+                            },
+                          );
 
-        //                   videoController = VideoPlayerController.asset(
-        //                       item.url,
-        //                     )
-        //                     ..initialize().then((_) {
-        //                       videoController?.play();
-        //                       setState(() {});
-        //                     });
-
-        //                   controller = FloatingController(
-        //                     maximizedChild: MaximizedVideo(
-        //                       videoController: videoController,
-        //                       video: item,
-        //                     ),
-        //                     minimizedChild: MinimizedVideo(
-        //                       videoController: videoController,
-        //                       video: item,
-        //                     ),
-        //                     onDispose: () {
-        //                       videoController?.dispose();
-        //                     },
-        //                   );
-        //                   break;
-        //                 case News _:
-        //                   controller = FloatingController(
-        //                     maximizedChild: MaximizedNewsScreen(news: item),
-        //                     minimizedChild: MinimizedNewsScreen(news: item),
-        //                     onDispose: () {},
-        //                   );
-        //                   break;
-        //                 default:
-        //                   break;
-        //               }
-
-        //               if (controller != null) {
-        //                 floatingState?.setController(controller);
-        //               }
-        //             },
-        //           );
-        //         },
-        //       ),
-        //     ],
-        //   ),
-        // ),
+                          break;
+                        case News _:
+                          widget.controller.initialize(
+                            maxChild: MaximizedNewsScreen(
+                              news: item,
+                              controller: widget.controller,
+                            ),
+                            minChild: MinimizedNewsScreen(
+                              news: item,
+                              controller: widget.controller,
+                            ),
+                            onDispose: () {},
+                          );
+                          break;
+                        default:
+                          break;
+                      }
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
