@@ -4,6 +4,21 @@ The `FloatingView` package enables you to create a floating window similar to Yo
 
 <img src="https://github.com/ccprogrammer/floating-view/raw/main/lib/assets/floating-view-video.gif?raw=true" alt="The example app running in iOS"  width="100%" />
 
+## Table of Contents
+- [FloatingView Package](#floatingview-package)
+- [Table of Contents](#table-of-contents)
+- [Integration Steps](#integration-steps)
+    - [Wrap the Screen](#wrap-the-screen)
+    - [Initialize the FloatingView](#initialize-the-floatingview)
+    - [Using the APIs](#using-the-apis)
+- [Available API Methods in FloatingController](#available-api-methods-in-floatingcontroller)
+    - [Initialize the Floating View](#initialize-the-floating-view)
+    - [Close an Active Floating View](#close-an-active-floating-view)
+    - [Toggle the Floating View Size](#toggle-the-floating-view-size)
+    - [Dispose the controller](#dispose-the-controller)
+- [Contributing](#contributing)
+- [License](#license)
+
 ### Integration Steps
 
 To integrate the package into your Flutter application, follow these steps:

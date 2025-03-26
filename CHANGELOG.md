@@ -1,3 +1,3 @@
-## 1.0.2
+## 1.0.3
 
-* Updated the example on how to use VideoPlayer properly across screens with FloatingView
+* Updated the documentation

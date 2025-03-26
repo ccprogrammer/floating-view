@@ -1,6 +1,6 @@
 name: floating_view
 description: "A plugin to achieve youtube collapsing window behavior."
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/ccprogrammer/floating-view
 
 environment:
