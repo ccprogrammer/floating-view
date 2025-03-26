@@ -5,8 +5,6 @@ The `FloatingView` package enables you to create a floating window similar to Yo
 <img src="https://github.com/ccprogrammer/floating-view/raw/main/lib/assets/floating-view-video.gif?raw=true" alt="The example app running in iOS"  width="100%" />
 
 ## Table of Contents
-- [FloatingView Package](#floatingview-package)
-- [Table of Contents](#table-of-contents)
 - [Integration Steps](#integration-steps)
     - [Wrap the Screen](#wrap-the-screen)
     - [Initialize the FloatingView](#initialize-the-floatingview)
