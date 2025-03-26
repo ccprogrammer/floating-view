@@ -6,14 +6,14 @@ The `FloatingView` package enables you to create a floating window similar to Yo
 
 ## Table of Contents
 - [Integration Steps](#integration-steps)
-    - [Wrap the Screen](#wrap-the-screen)
-    - [Initialize the FloatingView](#initialize-the-floatingview)
-    - [Using the APIs](#using-the-apis)
+    - [Wrap the Screen](#integration-steps)
+    - [Initialize the FloatingView](#integration-steps)
+    - [Using the APIs](#integration-steps)
 - [Available API Methods in FloatingController](#available-api-methods-in-floatingcontroller)
-    - [Initialize the Floating View](#initialize-the-floating-view)
-    - [Close an Active Floating View](#close-an-active-floating-view)
-    - [Toggle the Floating View Size](#toggle-the-floating-view-size)
-    - [Dispose the controller](#dispose-the-controller)
+    - [Initialize the Floating View](#available-api-methods-in-floatingcontroller)
+    - [Close an Active Floating View](#available-api-methods-in-floatingcontroller)
+    - [Toggle the Floating View Size](#available-api-methods-in-floatingcontroller)
+    - [Dispose the controller](#available-api-methods-in-floatingcontroller)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -166,7 +166,7 @@ To integrate the package into your Flutter application, follow these steps:
    controller.toggleSize()
    ```
 
-4. **Dispose the controller:**
+4. #**Dispose the controller:**
 
    ```dart
    controller.dispose()
