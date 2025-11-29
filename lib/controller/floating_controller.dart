@@ -72,7 +72,7 @@ class FloatingController extends ChangeNotifier {
   late Size _collapsedSize;
 
   /// The [MediaQueryData] for the current context.
-  late final MediaQueryData _mediaQuery = MediaQuery.of(context);
+  late MediaQueryData _mediaQuery = MediaQuery.of(context);
 
   /// Callback to be called when the floating widget is disposed.
   VoidCallback? _onDispose;
@@ -161,6 +161,20 @@ class FloatingController extends ChangeNotifier {
               bottomMargin,
         );
     }
+  }
+
+  /// Updates the MediaQuery information for orientation changes.
+  ///
+  /// This method should be called before changing the screen orientation
+  /// to ensure the floating view adapts correctly to the new dimensions.
+  ///
+  /// Example:
+  /// ```dart
+  /// controller.updateMediaQuery(MediaQuery.of(context).copyWith(size: Size()));
+  /// ```
+  void updateMediaQuery(MediaQueryData mediaQueryData) {
+    _mediaQuery = mediaQueryData;
+    notifyListeners();
   }
 
   /// Toggles the size of the floating widget between collapsed and expanded.
